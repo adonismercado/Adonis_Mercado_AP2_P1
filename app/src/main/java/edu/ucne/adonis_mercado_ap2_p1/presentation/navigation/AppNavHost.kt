@@ -14,24 +14,27 @@ fun AppNavHost (
 ) {
     NavHost(
         navController = navController,
-        startDestination = "borrame_list"
+        startDestination = Screen.BorrameList
     ) {
-        composable("borrame_list") {
+        composable<Screen.BorrameList> {
             ListBorrameScreen(
-                onAddBorrame = {
-                    navController.navigate("borrame_form(0)")
+                onNew = {
+                    navController.navigate(Screen.BorrameForm(0))
                 },
                 onNavigateToEdit = { id ->
-                    navController.navigate("borrame_form(id)")
+                    navController.navigate(Screen.BorrameForm(id))
+                },
+                onAddBorrame = {
+                    navController.navigate(Screen.BorrameForm(0))
                 }
             )
         }
 
-        composable("borrame_form") {
+        composable<Screen.BorrameForm> {
             EditBorrameScreen(
                 onBack = {
-                    navController.navigate("borrame_list") {
-                        popUpTo("borrame_list") {
+                    navController.navigate(Screen.BorrameList) {
+                        popUpTo(Screen.BorrameList) {
                             inclusive = true
                         }
                     }
