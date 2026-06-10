@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface AmonestacionRepository {
     fun observeAmonestaciones(): Flow<List<Amonestacion>>
-    suspend fun getAmonestacion(): Amonestacion?
+    suspend fun getAmonestacion(id: Int): Amonestacion?
     suspend fun upsert(amonestacion: Amonestacion): Int
     suspend fun delete(id: Int)
     fun fiterAmonestaciones(nombres: String?, razon: String?): Flow<List<Amonestacion>>
