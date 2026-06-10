@@ -3,7 +3,7 @@ package edu.ucne.adonis_mercado_ap2_p1.data.local.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "amonestaciones")
 data class AmonestacionEntity (
     @PrimaryKey(autoGenerate = true)
     var amonestacionId: Int = 0,
