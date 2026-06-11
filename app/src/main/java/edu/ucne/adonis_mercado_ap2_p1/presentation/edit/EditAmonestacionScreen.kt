@@ -83,7 +83,7 @@ fun EditAmonestacionScreen (
             OutlinedTextField(
                 value = state.razon,
                 onValueChange = { viewModel.onEvent(EditAmonestacionUiEvent.RazonChanged(it)) },
-                label = { Text("Nombres:") },
+                label = { Text("Razon:") },
                 modifier = Modifier.fillMaxWidth(),
                 isError = state.razonError != null,
                 supportingText = { state.razonError?.let { Text(it) }}
